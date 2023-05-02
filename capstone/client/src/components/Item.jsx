@@ -12,43 +12,46 @@ import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
 
+
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const [count, setCount] = useState(1); //Represents # of items to add to cart
+  const [isHovered, setIsHovered] = useState(false); //Tells us if user is hovering over an item 
   const {
-    palette: { neutral },
-  } = useTheme();
+    palette: { neutral }, 
+  } = useTheme(); 
 
-  const { category, price, name, image } = item.attributes;
+  const { category, price, name, image } = item.attributes; // Grab cat, price, name, image  data from attributes
   const {
     data: {
       attributes: {
         formats: {
-          medium: { url },
+          medium: { url }, //Grabs the medium sized image from Strapi
         },
       },
     },
   } = image;
 
-  return (
-    <Box width={width}>
+  return (  
+    //Set Box width to the width of the item
+    <Box width={width}> 
       <Box
         position="relative"
-        onMouseOver={() => setIsHovered(true)}
-        onMouseOut={() => setIsHovered(false)}
+        onMouseOver={() => setIsHovered(true)} //Finds out if mouse is hovered over then it displays the count if true
+        onMouseOut={() => setIsHovered(false)} //If mouse is not hovering over item
       >
         <img
-          alt={item.name}
+          alt={item.name} //Grab the name attribute from the item
           width="300px"
           height="400px"
-          src={`http://localhost:2000${url}`}
-          onClick={() => navigate(`/item/${item.id}`)}
-          style={{ cursor: "pointer" }}
+          src={`http://localhost:2000${url}`} //Basic backend url then use the url we recieved above
+          onClick={() => navigate(`/item/${item.id}`)} //Navigate to the item details when clicked on
+          style={{ cursor: "pointer" }} 
         />
         <Box
-          display={isHovered ? "block" : "none"}
+          //Plus and minus signs 
+          display={isHovered ? "block" : "none"} //When this box is hovered, it displays the count of the item
           position="absolute"
           bottom="10%"
           left="0"
@@ -62,7 +65,8 @@ const Item = ({ item, width }) => {
               backgroundColor={shades.neutral[100]}
               borderRadius="3px"
             >
-              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                {/* Makes sure the count doesn't go below 1 */}
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}> 
                 <RemoveIcon />
               </IconButton>
               <Typography color={shades.primary[300]}>{count}</Typography>
@@ -70,6 +74,7 @@ const Item = ({ item, width }) => {
                 <AddIcon />
               </IconButton>
             </Box>
+            {/* On click we navigate to the Cart page taking the item and the current count for the cart */}
             <Button
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
@@ -81,11 +86,11 @@ const Item = ({ item, width }) => {
           </Box>
         </Box>
       </Box>
-
+      
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
-            .replace(/([A-Z])/g, " $1")
+            .replace(/([A-Z])/g, " $1") //Takes the categories we created in Strapi and capitalizes the first letter
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
