@@ -10,31 +10,33 @@ import ItemDetails from "./scenes/itemDetails/ItemDetails";
 import Checkout from "./scenes/checkout/Checkout";
 import Confirmation from "./scenes/checkout/Confirmation";
 import Navbar from "./scenes/global/Navbar";
+import CartMenu from "./scenes/global/CartMenu";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0,0);
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
-}
-
+};
 
 function App() {
-  return <div className="app">
-    <BrowserRouter>
-      <Navbar></Navbar>
-      <ScrollToTop />
-      <Routes>
-        <Route path = "/" element={<Home />} />
-        <Route path = "item/:itemId" element={<ItemDetails />} />
-        <Route path = "checkout" element={<Checkout />} />
-        <Route path = "checkout/success" element={<Confirmation />} />
-      </Routes>
-    </BrowserRouter>
-    </div>;
+  return ( <div className="app">
+      <BrowserRouter>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="item/:itemId" element={<ItemDetails />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="checkout/success" element={<Confirmation />} />
+        </Routes>
+        <CartMenu />
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
