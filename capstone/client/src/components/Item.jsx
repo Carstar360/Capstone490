@@ -45,7 +45,7 @@ const Item = ({ item, width }) => {
           alt={item.name} //Grab the name attribute from the item
           width="300px"
           height="400px"
-          src={`http://localhost:2000${url}`} //Basic backend url then use the url we recieved above
+          src={`http://localhost:1337${url}`} //Basic backend url then use the url we recieved above
           onClick={() => navigate(`/item/${item.id}`)} //Navigate to the item details when clicked on
           style={{ cursor: "pointer" }} 
         />

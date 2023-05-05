@@ -12,7 +12,7 @@ import {
   setIsCartOpen,
 } from "../../state";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; //Used to navigate through each page
 
 const FlexBox = styled(Box)`
   display: flex;
@@ -21,8 +21,8 @@ const FlexBox = styled(Box)`
 `;
 //Navigate a way to the checkout page
 const CartMenu = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate(); //Assign useNavigate function to navigate
+  const dispatch = useDispatch(); //Assign useDispatch function to dispatch
   const cart = useSelector((state) => state.cart.cart);
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
@@ -53,8 +53,8 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
-            <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
-            <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
+            <Typography variant="h3"> SHOPPING BAG ({cart.length})</Typography>
+            <IconButton onClick={() => dispatch(setIsCartOpen({}))}> {/* Open the cart when clicked */}
               <CloseIcon />
             </IconButton>
           </FlexBox>
@@ -70,7 +70,7 @@ const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     /> {/* Get the info from Strapi using this url */}
                   </Box>
                   <Box flex="1 1 60%">
@@ -87,6 +87,7 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
+                    {/* Print the short description from Strapi that the specific item has */}
                     <Typography>{item.attributes.shortDescription}</Typography>
                     <FlexBox m="15px 0">
                       <Box
@@ -111,7 +112,7 @@ const CartMenu = () => {
                           <AddIcon />
                         </IconButton>
                       </Box>
-                      {/* Display the price of each item */}
+                      {/* Display the price of each item from Strapi */}
                       <Typography fontWeight="bold">
                         ${item.attributes.price}
                       </Typography>

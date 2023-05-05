@@ -27,6 +27,7 @@ const MainCarousel = () => {
       showIndicators={false}
       showStatus={false}
       //Modify the prev pic button
+      //Use onClick handler to access prev picture
       renderArrowPrev={(onClickHandler, hasPrev, label) => (
         <IconButton
           onClick={onClickHandler} //Given to us from the react response carousel
@@ -44,9 +45,11 @@ const MainCarousel = () => {
         </IconButton>
       )}
       //Same as prev button but uses NextIcon instead
+      //Use onClickHandler to access next image
       renderArrowNext={(onClickHandler, hasNext, label) => (
         <IconButton
           onClick={onClickHandler}
+          //Style for the arrow next button
           sx={{
             position: "absolute",
             top: "50%",
@@ -75,6 +78,7 @@ const MainCarousel = () => {
           />
           <Box
             //This creates the box within the carousel for text
+            //Style for box
             color="white"
             padding="20px"
             borderRadius="1px"
@@ -89,12 +93,13 @@ const MainCarousel = () => {
             margin={isNonMobile ? undefined : "0 auto"}
             maxWidth={isNonMobile ? undefined : "240px"}
           >
-            <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
-            <Typography variant="h1">Pre Summer Sale</Typography>
+            {/* TEXT in the middle of the carousel  */}
+            <Typography color={shades.secondary[200]}>-- FRESH DROPS</Typography>
+            <Typography variant="h1">End of Semester Sale</Typography>
             <Typography fontWeight="bold" color={shades.secondary[300]}
               sx={{ textDecoration: "underline" }}
             >
-              Discover More
+              Find Out More
             </Typography>
           </Box>
         </Box>
