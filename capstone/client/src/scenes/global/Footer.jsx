@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { shades } from "../../theme";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 
 //Bottom of the homepage
 //No functionality just for UI purposes
@@ -31,11 +31,12 @@ const Footer = () => {
             SNKRS APP
           </Typography>
           <div>
-            Then came the night of the first falling star. It was seen early in
-            the morning, rushing over Winchester eastward, a line of flame high
-            in the atmosphere. Hundreds must have seen it and taken it for an
-            ordinary falling star. It seemed that it fell to earth about one
-            hundred miles east of him.
+            Over time, SNKR APP has become one of the most well-known and
+            respected shoe websites in the world. They continued to innovate and
+            adapt, always staying one step ahead of their competitors. And while
+            they may have started as a small family business, they had become a
+            global leader in the shoe industry, all thanks to their dedication
+            to quality, customer service, and a love of shoes.
           </div>
         </Box>
         {/* This box encappsulates the "About us" section of the footer
@@ -44,10 +45,18 @@ const Footer = () => {
           <Typography variant="h4" fontWeight="bold" mb="30px">
             About us
           </Typography>
-          <Typography mb="30px">History</Typography>
-          <Typography mb="30px">Store Locations</Typography>
-          <Typography mb="30px">Career Opportunities</Typography>
-          <Typography mb="30px">Terms & Conditions</Typography>
+          <Typography mb="15px">
+            <Button>History</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>Store Locations</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>Career Opportunities</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>Terms & Conditions</Button>
+          </Typography>
         </Box>
 
         {/* Center footer info at the bottom of each page 
@@ -57,10 +66,18 @@ const Footer = () => {
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Customer Care
           </Typography>
-          <Typography mb="30px">Support Chat</Typography>
-          <Typography mb="30px">Email Us</Typography>
-          <Typography mb="30px">Call Us</Typography>
-          <Typography mb="30px">FAQ</Typography>
+          <Typography mb="15px">
+            <Button>Support Chat</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>Email Us</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>Call Us</Button>
+          </Typography>
+          <Typography mb="15px">
+            <Button>FAQ</Button>
+          </Typography>
         </Box>
 
         {/* Box created that holds the contact info for the site */}
