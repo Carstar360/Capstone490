@@ -151,20 +151,28 @@ const Checkout = () => {
   async function makePayment(values) {
     const stripe = await stripePromise;
     const requestBody = {
+        //Combine firstName and lastname into one userName
       userName: [values.firstName, values.lastName].join(" "),
+      //email is assigned the values.email 
       email: values.email,
+      //Grab everything in the current cart as well as the count
+      //Return the id and count as properties
       products: cart.map(({ id, count }) => ({
         id,
         count,
       })),
     };
-
+    //API Call to backend
+    //Orders model created in Strapi
     const response = await fetch("http://localhost:1337/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
     });
+    //Format the response
     const session = await response.json();
+    //Grab sessionID from back end and direct it to checkout
+    //Redirect user to checkout
     await stripe.redirectToCheckout({
       sessionId: session.id,
     });
