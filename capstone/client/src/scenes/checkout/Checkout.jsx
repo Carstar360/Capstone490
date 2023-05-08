@@ -11,11 +11,13 @@ import Shipping from "./Shipping";
 import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 
+//Public key from stripe account
 const stripePromise = loadStripe(
   "pk_test_51N5LTzKXo8AEfsujrSg6uNBVHIkoC7njD1XHbfDBtBq8ZHdOz3sDXYnGuoOE2e05EAmjFqKot4fLhtvfjkzcT8q6001MHyQvNc"
 );
 
 const initialValues = {
+    //Initialize billingAddress values to empty
   billingAddress: {
     firstName: "",
     lastName: "",
@@ -26,6 +28,8 @@ const initialValues = {
     state: "",
     zipCode: "",
   },
+  //Initialize shippingAddress values to empty as well
+  //isSameAddress initialized to true as well, auto checked
   shippingAddress: {
     isSameAddress: true,
     firstName: "",
@@ -37,6 +41,7 @@ const initialValues = {
     state: "",
     zipCode: "",
   },
+  //Email and phone number in next step initialized to empty as well
   email: "",
   phoneNumber: "",
 };
@@ -73,6 +78,8 @@ const checkoutSchema = [
         is: false,
         then: yup.string().required("required"),
       }),
+      //If yup.string is isSameAddress true = not required
+      //If false = required
       lastName: yup.string().when("isSameAddress", {
         is: false,
         then: yup.string().required("required"),

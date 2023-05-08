@@ -1,5 +1,7 @@
 import { useState } from "react";
+//https://redux-toolkit.js.org/tutorials/quick-start
 import { useDispatch } from "react-redux";
+//https://mui.com/material-ui
 import { 
     IconButton, 
     Box, 
@@ -14,10 +16,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const Item = ({ item, width }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate(); //Initialize navigate to the useNavigate function
+  const dispatch = useDispatch(); //Initialize dispatch to the useDispatch function
   const [count, setCount] = useState(1); //Represents # of items to add to cart
   const [isHovered, setIsHovered] = useState(false); //Tells us if user is hovering over an item 
+  //Grab neutral from theme.js and assign it to palette using useTheme function
   const {
     palette: { neutral }, 
   } = useTheme(); 
@@ -58,6 +61,7 @@ const Item = ({ item, width }) => {
           width="100%"
           padding="0 5%"
         >
+          {/**Flex box for the add and subtract button */}
           <Box display="flex" justifyContent="space-between">
             <Box
               display="flex"
@@ -77,8 +81,10 @@ const Item = ({ item, width }) => {
             {/* On click we navigate to the Cart page taking the item and the current count for the cart */}
             <Button
               onClick={() => {
+                //Add item to cart
                 dispatch(addToCart({ item: { ...item, count } }));
               }}
+              //Button styling
               sx={{ backgroundColor: shades.primary[300], color: "white" }}
             >
               Add to Cart
