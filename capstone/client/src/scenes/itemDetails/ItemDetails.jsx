@@ -91,7 +91,7 @@ const ItemDetails = () => {
             <Typography>Price: ${item?.attributes?.price}</Typography>
             {/** Button to select the shoe size you desire */}
             <Typography>Select Shoe Size: </Typography><form>
-              <select id="country" name="country">
+              <select id="size" name="size">
                 <option value="8">8</option>
                 <option value="8.5">8.5</option>
                 <option value="9">9</option>
@@ -144,6 +144,23 @@ const ItemDetails = () => {
               onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
             >
               ADD TO CART
+            </Button>
+          </Box>
+          <Box display="flex" alignItems="center" minHeight="50px">
+            
+            <Button
+              sx={{
+                backgroundColor: "#222222",
+                color: "white",
+                borderRadius: 0,
+                minWidth: "150px",
+                padding: "10px 40px",
+              }}
+              //Add to cart button which adds the currently selected amount of shoes
+              //to the current cart for purchase
+              onClick={event =>  window.location.href='http://localhost:3001'}
+            >
+              Join Waiting Room
             </Button>
           </Box>
           <Box>
