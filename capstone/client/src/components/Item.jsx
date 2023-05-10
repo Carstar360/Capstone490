@@ -1,31 +1,27 @@
 import { useState } from "react";
 //https://redux-toolkit.js.org/tutorials/quick-start
+//https://builtin.com/software-engineering-perspectives/useselector-usedispatch-react-redux
 import { useDispatch } from "react-redux";
 //https://mui.com/material-ui
-import { 
-    IconButton, 
-    Box, 
-    Typography, 
-    useTheme, 
-    Button } from "@mui/material";
+//https://mui.com/material-ui/react-box/
+import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
 
-
 const Item = ({ item, width }) => {
   const navigate = useNavigate(); //Initialize navigate to the useNavigate function
   const dispatch = useDispatch(); //Initialize dispatch to the useDispatch function
   const [count, setCount] = useState(1); //Represents # of items to add to cart
-  const [isHovered, setIsHovered] = useState(false); //Tells us if user is hovering over an item 
+  const [isHovered, setIsHovered] = useState(false); //Tells us if user is hovering over an item
   //Grab neutral from theme.js and assign it to palette using useTheme function
   const {
-    palette: { neutral }, 
-  } = useTheme(); 
+    palette: { neutral },
+  } = useTheme();
 
-  const { category, price, name, image } = item.attributes; // Grab cat, price, name, image  data from attributes
+  const { category, price, name, image, release } = item.attributes; // Grab cat, price, name, image  data from attributes
   const {
     data: {
       attributes: {
@@ -36,9 +32,10 @@ const Item = ({ item, width }) => {
     },
   } = image;
 
-  return (  
+  return (
     //Set Box width to the width of the item
-    <Box width={width}> 
+    //https://mui.com/material-ui/react-box/
+    <Box width={width}>
       <Box
         position="relative"
         onMouseOver={() => setIsHovered(true)} //Finds out if mouse is hovered over then it displays the count if true
@@ -50,10 +47,11 @@ const Item = ({ item, width }) => {
           height="400px"
           src={`http://localhost:1337${url}`} //Basic backend url then use the url we recieved above
           onClick={() => navigate(`/item/${item.id}`)} //Navigate to the item details when clicked on
-          style={{ cursor: "pointer" }} 
+          style={{ cursor: "pointer" }}
         />
+        {/*https://mui.com/material-ui/react-box/*/}
         <Box
-          //Plus and minus signs 
+          //Plus and minus signs
           display={isHovered ? "block" : "none"} //When this box is hovered, it displays the count of the item
           position="absolute"
           bottom="10%"
@@ -69,8 +67,8 @@ const Item = ({ item, width }) => {
               backgroundColor={shades.neutral[100]}
               borderRadius="3px"
             >
-                {/* Makes sure the count doesn't go below 1 */}
-              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}> 
+              {/* Makes sure the count doesn't go below 1 */}
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
                 <RemoveIcon />
               </IconButton>
               <Typography color={shades.primary[300]}>{count}</Typography>
@@ -92,8 +90,9 @@ const Item = ({ item, width }) => {
           </Box>
         </Box>
       </Box>
-      
+      {/*https://mui.com/material-ui/react-box/*/}
       <Box mt="3px">
+        {/*https://mui.com/material-ui/react-typography/*/}
         <Typography variant="subtitle2" color={neutral.dark}>
           {category
             .replace(/([A-Z])/g, " $1") //Takes the categories we created in Strapi and capitalizes the first letter
@@ -101,6 +100,7 @@ const Item = ({ item, width }) => {
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>
+        <Typography fontWeight="bold">Release: {release}</Typography>
       </Box>
     </Box>
   );

@@ -1,5 +1,6 @@
 //https://redux-toolkit.js.org/tutorials/quick-start
 import { useSelector } from "react-redux";
+//https://mui.com/material-ui/react-box/
 import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
 //https://formik.org/docs/overview#installation
 import { Formik } from "formik"; //Form library that simplifies validation for checkout
@@ -218,6 +219,9 @@ const Checkout = () => {
                   setFieldValue={setFieldValue}
                 />
               )}
+              {/** Pass in the values above into the payment page if we're 
+               * on the shipping page
+               */}
               {isSecondStep && (
                 <Payment
                   values={values}

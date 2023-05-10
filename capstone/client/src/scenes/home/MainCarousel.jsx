@@ -1,4 +1,6 @@
+//https://mui.com/material-ui/react-box/
 import { Box, Typography, IconButton, useMediaQuery } from "@mui/material";
+//https://www.npmjs.com/package/react-responsive-carousel
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";

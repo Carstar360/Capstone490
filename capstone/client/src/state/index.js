@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//Initializes the state
 const initialState = {
+    //The cart starts empty
     isCartOpen: false,
+    //Cart is an empty array
     cart: [],
+    //Items array is also empty
     items: [],
 }
 

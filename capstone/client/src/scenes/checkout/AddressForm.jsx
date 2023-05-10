@@ -1,4 +1,6 @@
 //https://mui.com/material-ui/getting-started/installation/
+//https://mui.com/material-ui/react-use-media-query/
+//https://mui.com/material-ui/react-box/
 import { Box, useMediaQuery, TextField } from "@mui/material";
 import { getIn } from "formik";
 
@@ -12,6 +14,7 @@ const AddressForm = ({
   handleBlur,
   handleChange,
 }) => {
+  //https://mui.com/material-ui/react-use-media-query/
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   // Functions that allow the code to be read easier
@@ -71,10 +74,11 @@ const AddressForm = ({
         fullWidth
         type="text"
         label="Last Name"
-        //Handles clicking on and off the box
+        //Handles clicking on and off the specific box for Last name
         onBlur={handleBlur}
         //handles what you type into the field
         onChange={handleChange}
+        //The value becomes whatever is typed in the last name box
         value={values.lastName}
         name={formattedName("lastName")}
         error={formattedError("lastName")}

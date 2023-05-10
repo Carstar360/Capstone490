@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+//https://builtin.com/software-engineering-perspectives/useselector-usedispatch-react-redux
 import { useDispatch, useSelector } from "react-redux";
 // eslint-disable-next-line
 import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
@@ -7,15 +8,19 @@ import Item from "../../components/Item";
 import { setItems } from "../../state";
 
 const ShoppingList = () => {
+  //https://builtin.com/software-engineering-perspectives/useselector-usedispatch-react-redux
   const dispatch = useDispatch(); //Triggers each action
   // eslint-disable-next-line
   const [value, setValue] = useState("all"); //Represents the value for the filter function
-  const items = useSelector((state) => state.cart.items);
+  //https://builtin.com/software-engineering-perspectives/useselector-usedispatch-react-redux
+  const items = useSelector((state) => state.cart.items); 
   // eslint-disable-next-line
+  //https://mui.com/material-ui/react-use-media-query/
   const isNonMobile = useMediaQuery("(min-width:600px)");
   console.log("items", items);
 
   // eslint-disable-next-line
+  //Whatever is 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -32,6 +37,7 @@ const ShoppingList = () => {
   useEffect(() => {
     getItems();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+          // Stops the warnings from appearing when running the server
 
   //Grabs the items from strapi with the same catregory tag listed below
   //Grabs top rated items
