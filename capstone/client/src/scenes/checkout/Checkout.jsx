@@ -10,6 +10,7 @@ import * as yup from "yup"; //Validation library for validating the checkout for
 import { shades } from "../../theme";
 import Shipping from "./Shipping";
 import Payment from "./Payment";
+//https://www.npmjs.com/package/@stripe/stripe-js
 import { loadStripe } from "@stripe/stripe-js";
 
 //Public key from stripe account
