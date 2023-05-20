@@ -1,6 +1,7 @@
 //https://mui.com/material-ui/getting-started/installation/
 import { useTheme } from "@mui/material";
 import { shades } from "../../theme";
+//{/**https://mui.com/material-ui/ */}
 import { Box, Typography, Button } from "@mui/material";
 
 //Bottom of the homepage
@@ -11,6 +12,7 @@ const Footer = () => {
   } = useTheme();
   return (
     //This outer box encapsulates the entire footer on each page
+    //**https://mui.com/material-ui/react-box/ 
     <Box mt="70px" p="40px 0" backgroundColor={neutral.light}>
       <Box
         width="80%"
@@ -22,6 +24,7 @@ const Footer = () => {
         columnGap="clamp(20%, 30%, 40%"
       >
         {/* This box encapsulates the name on the site as well as a shortdescription */}
+        {/**https://mui.com/material-ui/react-box/ */}
         <Box width="clamp(20%, 30%, 40%)">
           <Typography
             variant="h4"
@@ -63,12 +66,15 @@ const Footer = () => {
         {/* Center footer info at the bottom of each page 
             Focuses primarily on customer suppport
             Add support chat functionality */}
+            {/**https://mui.com/material-ui/react-box/ */}
         <Box>
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Customer Care
           </Typography>
           <Typography mb="15px">
-            <Button>Support Chat</Button>
+            <Button
+              onClick={event =>  window.location.href='http://localhost:3002'} 
+            >Support Chat</Button>
           </Typography>
           <Typography mb="15px">
             <Button>Email Us</Button>
@@ -82,6 +88,7 @@ const Footer = () => {
         </Box>
 
         {/* Box created that holds the contact info for the site */}
+        {/**https://mui.com/material-ui/react-box/ */}
         <Box width="clamp(20%, 25%, 30%)">
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Contact Info

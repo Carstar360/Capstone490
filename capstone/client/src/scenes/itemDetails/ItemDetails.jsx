@@ -1,23 +1,35 @@
+//https://legacy.reactjs.org/docs/hooks-state.html
+//https://www.w3schools.com/react/react_useeffect.asp
 import { useEffect, useState } from "react";
+//https://react-redux.js.org/api/hooks
 import { useDispatch } from "react-redux";
+//https://mui.com/material-ui/material-icons/
 import { IconButton, Tabs, Tab, Box, Typography, Button } from "@mui/material";
+//https://mui.com/material-ui/material-icons/
 import AddIcon from "@mui/icons-material/Add";
+//https://mui.com/material-ui/material-icons/
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+//https://mui.com/material-ui/material-icons/
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
+//https://reactrouter.com/en/main/hooks/use-params
 import { useParams } from "react-router-dom";
 import Item from "../../components/Item";
 
 const ItemDetails = () => {
+  //https://react-redux.js.org/api/hooks
   const dispatch = useDispatch(); //Initialize dispatch to the useDispatch function to traverse each page
+  //https://reactrouter.com/en/main/hooks/use-params
   const { itemId } = useParams(); //Uses useParams to grab the itemId and initialize it
   //To itemId (App.js Itemid)
+  //https://legacy.reactjs.org/docs/hooks-state.html
   const [value, setValue] = useState("description"); //Initialize description
   const [count, setCount] = useState(1); //Initialize count to 1, change based on user
   const [item, setItem] = useState(null); //Initialize item to Null
   const [items, setItems] = useState([]); //Initialize item list to empty
 
+  //Sets the new value when an event is triggered
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

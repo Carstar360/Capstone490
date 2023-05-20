@@ -2,22 +2,27 @@
 import { useDispatch, useSelector } from "react-redux";
 //https://mui.com/material-ui/getting-started/installation/
 import { Badge, Box, IconButton } from "@mui/material";
+//https://mui.com/material-ui/material-icons/
 import {
   PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
+//https://reactrouter.com/en/main/hooks/use-navigate
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
 function Navbar() {
+  //https://reactrouter.com/en/main/hooks/use-navigate
   const navigate = useNavigate();
+  //https://reactrouter.com/en/main/hooks/use-dispatch
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
 
   return (
+    //**https://mui.com/material-ui/react-box/ */
     <Box
       display="flex"
       alignItems="center"

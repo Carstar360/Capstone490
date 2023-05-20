@@ -1,9 +1,12 @@
 //https://mui.com/material-ui/react-box/
 import { Box, InputBase, Divider, Typography, IconButton } from "@mui/material";
+//https://mui.com/material-ui/material-icons/
 import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
+//https://legacy.reactjs.org/docs/hooks-state.html
 import { useState } from "react";
 
 const Subscribe = () => {
+  //https://legacy.reactjs.org/docs/hooks-state.html
   const [email, setEmail] = useState(""); //Update the email var using setEmail 
                                             //Starts initially blank then use useState to update
 
@@ -30,6 +33,7 @@ const Subscribe = () => {
           sx={{ ml: 1, flex: 1 }}
           //"Enter email" inside the input box to direct the customer
           placeholder="Enter email"
+          //https://www.w3schools.com/jsref/event_onchange.asp
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />

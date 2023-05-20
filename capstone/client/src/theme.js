@@ -1,6 +1,7 @@
+//https://mui.com/material-ui/customization/theming/
 import { createTheme } from '@mui/material/styles';
 
-
+//Colors created to be exported to the rest of the app
 export const shades = {
     primary: {
         100: "#cccccc",
@@ -37,6 +38,8 @@ export const shades = {
     },
 }
 
+//Exported theme using the colors created above
+////https://mui.com/material-ui/customization/theming/
 export const theme = createTheme({
     palette: {
         primary: {
@@ -51,7 +54,9 @@ export const theme = createTheme({
             light: shades.neutral[100]
         }
     },
+    //Default font styling for all of the pages in the app
     typography: {
+        //https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
         fontFamily: ["Fauna One", "sans-serif"].join(","),
         fontSize: 11,
         h1: {

@@ -2,8 +2,11 @@
 import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 //https://redux-toolkit.js.org/tutorials/quick-start
 import { useSelector, useDispatch } from "react-redux";
+//https://mui.com/material-ui/material-icons/
 import CloseIcon from "@mui/icons-material/Close";
+//https://mui.com/material-ui/material-icons/
 import AddIcon from "@mui/icons-material/Add";
+//https://mui.com/material-ui/material-icons/
 import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "@emotion/styled";
 import { shades } from "../../theme";
@@ -14,6 +17,7 @@ import {
   setIsCartOpen,
 } from "../../state";
 
+//https://reactrouter.com/en/main/hooks/use-navigate
 import { useNavigate } from "react-router-dom"; //Used to navigate through each page
 
 const FlexBox = styled(Box)`
@@ -23,6 +27,7 @@ const FlexBox = styled(Box)`
 `;
 //Navigate a way to the checkout page
 const CartMenu = () => {
+  //https://reactrouter.com/en/main/hooks/use-navigate
   const navigate = useNavigate(); //Assign useNavigate function to navigate
   const dispatch = useDispatch(); //Assign useDispatch function to dispatch
   const cart = useSelector((state) => state.cart.cart);
@@ -33,6 +38,7 @@ const CartMenu = () => {
   }, 0);
 
   return (
+    //https://mui.com/material-ui/react-box/
     <Box
       display={isCartOpen ? "block" : "none"}
       backgroundColor="rgba(0, 0, 0, 0.4)"
@@ -44,6 +50,7 @@ const CartMenu = () => {
       top="0"
       overflow="auto"
     >
+      {/**https://mui.com/material-ui/react-box/ */}
       <Box
         position="fixed"
         right="0"
@@ -52,6 +59,7 @@ const CartMenu = () => {
         height="100%"
         backgroundColor="white"
       >
+        {/**https://mui.com/material-ui/react-box/ */}
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
