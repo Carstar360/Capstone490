@@ -12,3 +12,8 @@ Material UI Icons - https://mui.com/material-ui/material-icons/
 Chat - https://levelup.gitconnected.com/building-a-real-time-chat-application-with-node-js-and-socket-io-2cca199f05f8
 Timer - https://www.geeksforgeeks.org/how-to-create-a-countdown-timer-using-reactjs/#
 WebApp - https://www.youtube.com/watch?v=EBCdyQ_HFMo&t=251s
+Strapi - https://www.youtube.com/watch?v=EBCdyQ_HFMo&t=251s
+
+Strapi login -
+carstar360@hotmail.com
+Stephklay3011$
